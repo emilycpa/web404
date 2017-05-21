@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="renderer" content="webkit" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="mobile-web-app-capable" content="yes" />
+<script src="assets/js/jquery.min.js"></script>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+<link rel="stylesheet" href="assets/css/amazeui.min.css">
+<script src="assets/js/amazeui.min.js"></script>
+<link rel="stylesheet" href="assets/css/app.css">
+<!-- <script src="http://js4396.anreson.net/s/i.php?id=17525"></script> -->
+
+
+<link rel="stylesheet" type="text/css"
+	href="http://s0.m.hao123img.com/static/html5-index/css/index_91a3ac1.css">
+</head>
+<body>
+	<script type="text/javascript">
+		var date = new Date();
+
+		function getCookie(c_name) {
+			if (document.cookie.length > 0) {
+				c_start = document.cookie.indexOf(c_name + "=");
+				if (c_start != -1) {
+					c_start = c_start + c_name.length + 1;
+					c_end = document.cookie.indexOf(";", c_start);
+					if (c_end == -1)
+						c_end = document.cookie.length;
+					return unescape(document.cookie.substring(c_start, c_end));
+				}
+			}
+			return "";
+		}
+		function setCookie(c_name, value, expireMins) {
+			var exdate = new Date();
+			exdate.setTime(exdate.getTime() + expireMins * 60 * 1000);
+			document.cookie = c_name
+					+ "="
+					+ escape(value)
+					+ ((expireMins == null) ? "" : ";expires="
+							+ exdate.toGMTString())
+		}
+		$(document).ready(function() {
+			var popFlag = getCookie('popFlag');
+			if (date.getHours() > 19 || date.getHours() < 8) {
+				/* if (navigator.cookieEnabled == true) {
+					if (popFlag == null || popFlag == "") {*/
+						setCookie('popFlag', "true", 1200);
+						$('#my-prompt').modal();
+						/* $('#imgContent').width($('#my-prompt').width() - 20);
+						$('#imgContent').height($('#my-prompt').height() - 20); */
+					
+				
+			}
+		});
+	</script>
+
+
+
+	<div class="am-modal am-modal-prompt" tabindex="-1" id="my-prompt">
+		<div class="am-modal-dialog">
+
+			<div class="am-modal-bd">
+				<img id="imgContent" src="images/ad2.jpg" width="100%" />
+			</div>
+
+		</div>
+	</div>
+
+</body>
+</html>

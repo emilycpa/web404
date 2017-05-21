@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<Context>  
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>  
+    <Resource name="jdbc/mysqlds" auth="Container"  
+        type="javax.sql.DataSource"  
+        driverClassName="com.mysql.jdbc.Driver"  
+        url="jdbc:mysql://127.0.0.1:3306/ttt?characterEncoding=UTF-8"  
+        username="root"  
+        password="pest2001"  
+        maxActive="200"  
+        maxIdle="50"  
+        maxWait="3000">  
+    </Resource>  
+</Context>  
