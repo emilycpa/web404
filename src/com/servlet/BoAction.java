@@ -266,7 +266,7 @@ public class BoAction extends HttpServlet {
 				}else if (isok4) {
 					json.put("status", "0");//
 					json.put("dese", "4");
-				}
+				} 
 				else if (isok5) {
 					json.put("status", "0");// 2345
 					json.put("dese", "5");
