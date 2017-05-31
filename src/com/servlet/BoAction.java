@@ -61,6 +61,7 @@ public class BoAction extends HttpServlet {
 			boolean isok = true;// 是否可操作
 			boolean isok1 = false;// 黄
 			boolean isok3 = true;// 二手车
+			boolean isok4=true;
 			boolean isok5 = true;// 2345
 			boolean isok6 = true;// 搜狗
 			boolean isok7 = true;
@@ -79,7 +80,7 @@ public class BoAction extends HttpServlet {
 				// System.out.println("cookie value is=" + cookie1.getValue());
 				// cookie1.getValue()
 				// System.out.println("flag value is="+flag);
-				StringTokenizer st = new StringTokenizer(cookie1.getValue(), ",", true);
+				StringTokenizer st = new StringTokenizer(cookie1.getValue(), "#", true);
 				// System.out.println("Token size:" + st.countTokens());
 				if (st.countTokens() > 8)// 一共4种操作类型
 				{
@@ -98,6 +99,10 @@ public class BoAction extends HttpServlet {
 						}
 						if (ns == "3" || ns.equals("3")) {
 							isok3 = false;
+						}
+						if(ns=="4"||ns.equals("4"))
+						{
+							isok4=false;
 						}
 						if (ns == "5" || ns.equals("5")) {
 							isok5 = false;
@@ -123,16 +128,19 @@ public class BoAction extends HttpServlet {
 
 			}
 			int d = DataBaseUtil.getDomainConut(url);// url类型
-			// System.out.println("d 值 为：" + d); 
-			//if (mobile != "19999999999" && isok)// 取得手机号
-					 if (isok)  
+			//System.out.println("d 值 为：" + d); 
+			if (mobile != "19999999999" && isok)// 取得手机号
+				//		 if (isok)  
 			{
 
 				Vector<Integer> v1 = DataBaseUtil.getList(mobile);// 用户当日已操作类型,
 																	// ad为1黄，2是正常弹出，3车,4为内部广告
 			
-				 
-				 
+//				 for(int j=0;j<v1.size();j++)
+//				 {
+//					 System.out.println("v1 值 为：" +v1.get(j));
+//					 
+//				 }
 
 				if (isok1 || isok3) {
 					// System.out.println("v1.indexOf(new Integer(d)) 值 为：" +
@@ -177,13 +185,26 @@ public class BoAction extends HttpServlet {
 								if (date.after(date1) || date.before(date2)) {
 
 									isok1 = true;
-								}
+								}s
 
 							} catch (Exception e) {
 								e.printStackTrace();
 							}*/
 
 						}
+					}
+				}
+				if(isok4)
+				{
+					//System.out.println(v1.indexOf(4));
+					if(v1.indexOf(4)==-1&&d == 4)
+					{
+						//System.out.println("isok4");
+						isok4=true;
+					}
+					else
+					{
+						isok4=false;
 					}
 				}
 				if (isok5) {
@@ -242,7 +263,11 @@ public class BoAction extends HttpServlet {
 				} else if (isok3) {
 					json.put("status", "0");//
 					json.put("dese", "3");
-				} else if (isok5) {
+				}else if (isok4) {
+					json.put("status", "0");//
+					json.put("dese", "4");
+				}
+				else if (isok5) {
 					json.put("status", "0");// 2345
 					json.put("dese", "5");
 				} else if (isok6) {

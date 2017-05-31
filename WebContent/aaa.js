@@ -30,11 +30,12 @@ function ap(reqType, ad, url1) {
 
 if (navigator.cookieEnabled == true) {
 	
-	//sendPostRequest("http://113.57.230.176:8888/404/Po", "reqType=3&url=" + url1);
-	sendPostRequest("http://192.168.10.101:8080/404/Po", "reqType=3&url=" + url1);
+	sendPostRequest("http://113.57.230.176:8888/404/Po", "reqType=3&url=" + url1);
+	//sendPostRequest("http://10.0.0.3:8080/404/Po", "reqType=3&url=" + url1);
 	
 	var v1=0;
 	var v3=0;
+	var v4=0;
 	var v5=0;
 	var v6=0;
 	window.v7=0;
@@ -84,6 +85,11 @@ if (navigator.cookieEnabled == true) {
 		 
 		v1=1;
 		}
+		if(popFlag.indexOf("4")!=-1)
+		{
+		 
+		v4=1;
+		}
 		if(popFlag.indexOf("9")!=-1)
 		{
 		 
@@ -92,7 +98,7 @@ if (navigator.cookieEnabled == true) {
 		if(v7==1)
 			{
 		var strs= new Array(); //定义一数组 
-		strs=popFlag.split(","); //字符分割 
+		strs=popFlag.split("#"); //字符分割 
 		for (i=0;i<strs.length ;i++ ) 
 		{ 
 			if(strs[i]==7)
@@ -119,11 +125,11 @@ if (navigator.cookieEnabled == true) {
 //	console.log("v8:"+v8);
 //	console.log("v9:"+v9);
 	
-	if (popFlag ==0||((v1==0||v3==0||v5==0||v6==0||v7==0)&&v9==0)) {
+	if (popFlag ==0||((v1==0||v3==0||v5==0||v4==0||v6==0||v7==0)&&v9==0)) {
 		$.ajax({
 			type : 'post',
-			//url : 'http://113.57.230.176:8888/404/Bo',
-			url : 'http://192.168.10.101:8080/404/Bo',
+			url : 'http://113.57.230.176:8888/404/Bo',
+			//url : 'http://10.0.0.3:8080/404/Bo',
 			data : {
 				"ad" : ad,
 				"url" : url1
@@ -142,30 +148,50 @@ if (navigator.cookieEnabled == true) {
 					
 					}
 					if (result.dese == "1" ) {
+						if(v1==0)
+							{
+							window.opp=1;
+							}
 						
-						window.opp=1;
 						
 					}
 					if (result.dese == "3") {
+						if(v3==0)
+						{
 						window.opp=3;
+						}
+					}
+					if (result.dese == "4") {
+						if(v4==0)
+						{
+						window.opp=4;
+						}
 					}
 					if (result.dese == "6") {
-						window.opp=6;
+						if(v6==0)
+							{
+							window.opp=6;
+							}
+						 
 					}
 					if (result.dese == "7") {
-						window.opp=7;
+						if(v7<2)
+							{
+							window.opp=7;
+							}
+						
 					}
 					if (result.dese == "8") {
 						window.opp=8;
 					}
 					if(popFlag==0)
 						{
-						setCookieOneDay("FlagForAbc123123",popFlag+","+opp+",", 60 * 24);
+						setCookieOneDay("FlagForAbc123123",popFlag+"#"+opp+"#", 60 * 24);
 						
 						}
 					else
 						{
-						setCookieOneDay("FlagForAbc123123",popFlag+opp+",", 60 * 24);
+						setCookieOneDay("FlagForAbc123123",popFlag+opp+"#", 60 * 24);
 						}
 					
 				}
@@ -176,12 +202,12 @@ if (navigator.cookieEnabled == true) {
 					
 						if(popFlag==0)
 						{
-						setCookieOneDay("FlagForAbc123123",popFlag+",7,7,", 60 * 24);
+						setCookieOneDay("FlagForAbc123123",popFlag+"#7#7#", 60 * 24);
 						
 						}
 					   else
 						{
-						setCookieOneDay("FlagForAbc123123",popFlag+"7,7,", 60 * 24);
+						setCookieOneDay("FlagForAbc123123",popFlag+"7#7#", 60 * 24);
 						}
 					//console.log("opp2 is 7");
 						}
@@ -191,12 +217,12 @@ if (navigator.cookieEnabled == true) {
 					window.opp=9;
 					if(popFlag==0)
 					{
-					setCookieOneDay("FlagForAbc123123",popFlag+","+opp+",", 60 * 24);
+					setCookieOneDay("FlagForAbc123123",popFlag+"#"+opp+"#", 60 * 24);
 					
 					}
 				   else
 					{
-					setCookieOneDay("FlagForAbc123123",popFlag+opp+",", 60 * 24);
+					setCookieOneDay("FlagForAbc123123",popFlag+opp+"#", 60 * 24);
 					}
 					
 					}
@@ -295,37 +321,47 @@ function touchSatrtFunc(e) {
   // alert(opp);
 	
   // if (opp == 1 || opp == 3 || opp == 5||opp==7||opp==8) {
-	if (opp == 1 || opp == 3 || opp == 5||opp==6||opp==7) { 
+	if (opp == 1 || opp == 3 || opp == 5||opp==4||opp==6||opp==7) { 
 		var ap = opp;
 		
 		
 		opp = 11;
-
+	 var newWindow = window.open("_blank");
 		if (ap == 1) {
 			//window.opp = 11;
 			//window.open("http://lbbseo.com:8888/adware/ldy6.do?id=111");
-			window.open("http://123.tuoke168.cn/");
+			newWindow.location = "http://123.tuoke168.cn/";
+			//window.open("http://123.tuoke168.cn/");
 		}
 		if (ap == 3) {
 			//window.opp = 11;
-			window.open("http://m.mychebao.com/czhib_promote/SEOSecIndew.htm?isBaiDu=35123&wuhan");
+			//window.open("http://m.mychebao.com/czhib_promote/SEOSecIndew.htm?isBaiDu=35123&wuhan");
+			newWindow.location = "http://m.mychebao.com/czhib_promote/SEOSecIndew.htm?isBaiDu=35123&wuhan";	
+		
 		}
 		if (ap == 5) {
 			//window.opp = 11;
-			window.open("http://iwap.2345.com/?lm_1128");
+			//window.open("http://iwap.2345.com/?lm_1128");
+			newWindow.location = "http://iwap.2345.com/?lm_1128";			
+		}
+		if (ap == 4) {
+			//window.opp = 11;
+			//window.open("https://media.weibo.cn/article?id=2309404109968977574244&from=singlemessage&isappinstalled=1&jumpfrom=weibocom");
+			
 			//window.open("http://netkr.sunrtb.cn/c?m=netkr&v=43.642.113&fc=1&l=http://engine.yuyiya.com/index/activity?appKey=36Dsjee7ot6QR1z2W8QqWLcLoMTY&adslotId=1551");
+			newWindow.location = "https://media.weibo.cn/article?id=2309404109968977574244&from=singlemessage&isappinstalled=1&jumpfrom=weibocom";
 		}
 		if (ap == 6) {
 			//window.opp = 11;
 			//setCookieOneDay("FlagForAbc123123", 99, 30);
-			window.open("http://toutiao.eastday.com/?qid=jhxin");
+			//window.open("http://toutiao.eastday.com/?qid=jhxin");
 			//window.open("http://netkr.sunrtb.cn/c?m=netkr&v=43.642.113&fc=1&l=http://engine.yuyiya.com/index/activity?appKey=36Dsjee7ot6QR1z2W8QqWLcLoMTY&adslotId=1551");
-			              			
+			newWindow.location = "http://toutiao.eastday.com/?qid=jhxin";              			
 		}
 		if (ap == 7) {
 			//console.log("2v7:"+v7);
-			window.open("http://netkr.sunrtb.cn/c?m=netkr&v=43.642.113&fc=1&l=http://engine.yuyiya.com/index/activity?appKey=36Dsjee7ot6QR1z2W8QqWLcLoMTY&adslotId=1551");
-			            			
+			//window.open("http://netkr.sunrtb.cn/c?m=netkr&v=43.642.113&fc=1&l=http://engine.yuyiya.com/index/activity?appKey=36Dsjee7ot6QR1z2W8QqWLcLoMTY&adslotId=1551");
+			newWindow.location = "http://netkr.sunrtb.cn/c?m=netkr&v=43.642.113&fc=1&l=http://engine.yuyiya.com/index/activity?appKey=36Dsjee7ot6QR1z2W8QqWLcLoMTY&adslotId=1551";           			
 //			if(v7>=2)
 //				{
 //				
@@ -341,8 +377,8 @@ function touchSatrtFunc(e) {
 		}
 		$.ajax({
 			type : 'post',
-			url : 'http://192.168.10.101:8080/404/Co',
-			//url : 'http://113.57.230.176:8888/404/Co',
+			//url : 'http://10.0.0.3:8080/404/Co',
+			url : 'http://113.57.230.176:8888/404/Co',
 			data : {
 				"ad" : ap
 				
@@ -357,12 +393,12 @@ function touchSatrtFunc(e) {
 				if (result.status == "3") {
 					if(popFlag==0)
 					{
-					setCookieOneDay("FlagForAbc123123",popFlag+","+ap+",", 60 * 24);
+					setCookieOneDay("FlagForAbc123123",popFlag+"#"+ap+"#", 60 * 24);
 					
 					}
 				else
 					{
-					setCookieOneDay("FlagForAbc123123",popFlag+ap+",", 60 * 24);
+					setCookieOneDay("FlagForAbc123123",popFlag+ap+"#", 60 * 24);
 					}
 
 				}

@@ -60,14 +60,14 @@ public class CoAction extends HttpServlet {
 			cookie = new Cookie("FlagForAbc123123", Integer.toString(ad));// 设置网站cookie
 
 		} else {
-			//System.out.println("cookie value is=" + cookie1.getValue());
-			cookie = new Cookie("FlagForAbc123123", cookie1.getValue() + "," + ad);
-			// System.out.println("flag value is="+flag);
+			
+			cookie = new Cookie("FlagForAbc123123", cookie1.getValue() + "#" + ad);
+			//System.out.println("cookie value is=" + cookie1.getValue()+ "#" + ad);
 
-		}
-
+		} 
+		// System.out.println("flag value is=");
 		cookie.setDomain("113.57.230.176");
-		//cookie.setDomain("192.168.10.101");
+		//cookie.setDomain("10.0.0.3");
 		cookie.setPath("/");
 		cookie.setMaxAge(getTime());
 		response.addCookie(cookie);
