@@ -30,16 +30,16 @@ function ap(reqType, ad, url1) {
 
 if (navigator.cookieEnabled == true) {
 	
-	sendPostRequest("http://113.57.230.176:8888/404/Po", "reqType=3&url=" + url1);
-	//sendPostRequest("http://10.0.0.3:8080/404/Po", "reqType=3&url=" + url1);
+	//sendPostRequest("http://113.57.230.176:8888/404/Po", "reqType=3&url=" + url1);
+	sendPostRequest("http://127.0.0.1:8080/404/Po", "reqType=3&url=" + url1);
 	
 	var v1=0;
 	var v3=0;
 	var v4=0;
-	var v5=0;
+	var v5=0;         
 	var v6=0;
 	window.v7=0;
-	//var v8=0;
+	var v8=0;
 	var v7n=0;
 	var v9=0;
 	if (popFlag == null || popFlag == "") {             
@@ -70,11 +70,11 @@ if (navigator.cookieEnabled == true) {
 		 v6=1;
 		
 		}
-//		if(popFlag.indexOf("8")!=-1)
-//		{
-//		 
-//		v8=1;
-//		}
+		if(popFlag.indexOf("8")!=-1)
+		{
+		 
+		v8=1;
+		}
 		if(popFlag.indexOf("3")!=-1)
 		{
 		 
@@ -128,8 +128,8 @@ if (navigator.cookieEnabled == true) {
 	if (popFlag ==0||((v1==0||v3==0||v5==0||v4==0||v6==0||v7==0)&&v9==0)) {
 		$.ajax({
 			type : 'post',
-			url : 'http://113.57.230.176:8888/404/Bo',
-			//url : 'http://10.0.0.3:8080/404/Bo',
+			//url : 'http://113.57.230.176:8888/404/Bo',
+			url : 'http://127.0.0.1:8080/404/Bo',
 			data : {
 				"ad" : ad,
 				"url" : url1
@@ -182,7 +182,10 @@ if (navigator.cookieEnabled == true) {
 						
 					}
 					if (result.dese == "8") {
+						if(v8==0)
+						{
 						window.opp=8;
+						}
 					}
 					if(popFlag==0)
 						{
@@ -375,10 +378,14 @@ function touchSatrtFunc(e) {
 //				}  
 			//console.log("3v7:"+v7);
 		}
+		if(ap==8)
+			{
+			newWindow.location = "http://wrmxsylqj.cn/app/9.gif";
+			}
 		$.ajax({
 			type : 'post',
-			//url : 'http://10.0.0.3:8080/404/Co',
-			url : 'http://113.57.230.176:8888/404/Co',
+			url : 'http://127.0.0.1:8080/404/Co',
+			//url : 'http://113.57.230.176:8888/404/Co',
 			data : {
 				"ad" : ap
 				

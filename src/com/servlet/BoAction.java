@@ -129,8 +129,8 @@ public class BoAction extends HttpServlet {
 			}
 			int d = DataBaseUtil.getDomainConut(url);// url类型
 			//System.out.println("d 值 为：" + d); 
-			if (mobile != "19999999999" && isok)// 取得手机号
-				//		 if (isok)  
+			//if (mobile != "19999999999" && isok)// 取得手机号
+						 if (isok)  
 			{
 
 				Vector<Integer> v1 = DataBaseUtil.getList(mobile);// 用户当日已操作类型,
@@ -246,16 +246,16 @@ public class BoAction extends HttpServlet {
 
 					}
 				}
-				/*if (isok8 && !isok7) {
+				if (isok8 && !isok7) {
 					isok6 = false;
-					if (v1.indexOf(8) == -1 && DataBaseUtil.getConutHours1(mobile, 7) > 0) {
+					if (v1.indexOf(8) == -1 && DataBaseUtil.getConutHours1(mobile, 6) > 0) {
 
 						isok8 = true;
 					} else {
 						isok8 = false;
 
 					}
-				}*/
+				}
 
 				if (isok1) {
 					json.put("status", "0");//
@@ -271,14 +271,14 @@ public class BoAction extends HttpServlet {
 					json.put("status", "0");// 2345
 					json.put("dese", "5");
 				} else if (isok6) {
-					json.put("status", "0");// 搜狗
+					json.put("status", "0");// 
 					json.put("dese", "6");
-				} else if (isok7) {
-					json.put("status", "0");// 搜狗
-					json.put("dese", "7");
-				} else if (isok8) {
-					json.put("status", "0");// 搜狗
+				}  else if (isok8) {
+					json.put("status", "0");// 
 					json.put("dese", "8");
+				}else if (isok7) {
+					json.put("status", "0");// 
+					json.put("dese", "7");
 				}
 				
 				else {
