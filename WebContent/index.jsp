@@ -94,7 +94,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="dao2"></script> 
+<script src="2.js"></script>
 <!--  <script type='text/javascript'  src='http://113.57.230.176:8888/404/ddd.js'></script>-->
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />

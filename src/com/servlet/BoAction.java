@@ -62,10 +62,11 @@ public class BoAction extends HttpServlet {
 			boolean isok1 = false;// 黄
 			boolean isok3 = true;// 二手车
 			boolean isok4=true;
+			boolean isok2=true;
 			boolean isok5 = true;// 2345
 			boolean isok6 = true;// 搜狗
 			boolean isok7 = true;
-			boolean isok8 = false;
+			boolean isok8 = true;
 			String url = request.getParameter("url");// 用户访问网站的域名
 
 			cookie1 = getCookieByName(request, "FlagForAbc123123");// 取cookie
@@ -81,7 +82,7 @@ public class BoAction extends HttpServlet {
 				// cookie1.getValue()
 				// System.out.println("flag value is="+flag);
 				StringTokenizer st = new StringTokenizer(cookie1.getValue(), "#", true);
-				// System.out.println("Token size:" + st.countTokens());
+			//	 System.out.println("Token size:" + st.countTokens());
 				if (st.countTokens() > 8)// 一共4种操作类型
 				{
 					isok = false;
@@ -92,10 +93,15 @@ public class BoAction extends HttpServlet {
 				if (isok) {
 					while (st.hasMoreElements()) {
 						String ns = st.nextToken();
+						//System.out.println("ns is "+ns);
 						int kk=0;
 						if (ns == "1" || ns.equals("1")) {
 
 							isok1 = false;
+						}
+						if (ns == "2" || ns.equals("2")) {
+
+							isok2 = false;
 						}
 						if (ns == "3" || ns.equals("3")) {
 							isok3 = false;
@@ -109,6 +115,7 @@ public class BoAction extends HttpServlet {
 						}
 						if (ns == "6" || ns.equals("6")) {
 							isok6 = false;
+							//System.out.println("isok6 值 为：false" );
 						}
 						if (ns == "7" || ns.equals("7")) {
 							kk++;
@@ -119,9 +126,9 @@ public class BoAction extends HttpServlet {
 							//System.out.println("isok7 值 为：false" );
 						}
 						//System.out.println("k 值 为：" + kk); 
-						/*if (ns == "8" || ns.equals("8")) {
+						if (ns == "8" || ns.equals("8")) {
 							isok8 = false;
-						}*/ 
+						} 
 
 					}
 				}
@@ -129,17 +136,17 @@ public class BoAction extends HttpServlet {
 			}
 			int d = DataBaseUtil.getDomainConut(url);// url类型
 			//System.out.println("d 值 为：" + d); 
-			//if (mobile != "19999999999" && isok)// 取得手机号
-						 if (isok)  
+			if (mobile != "19999999999" && isok)// 取得手机号
+				//				 if (isok)   
 			{
 
 				Vector<Integer> v1 = DataBaseUtil.getList(mobile);// 用户当日已操作类型,
 																	// ad为1黄，2是正常弹出，3车,4为内部广告
 			
-//				 for(int j=0;j<v1.size();j++)
-//				 {
+//			 for(int j=0;j<v1.size();j++)
+//			 {
 //					 System.out.println("v1 值 为：" +v1.get(j));
-//					 
+//				 
 //				 }
 
 				if (isok1 || isok3) {
@@ -194,6 +201,19 @@ public class BoAction extends HttpServlet {
 						}
 					}
 				}
+				if(isok2)
+				{
+					//System.out.println(v1.indexOf(4));
+					if(v1.indexOf(2)==-1&&d == 2&&v1.indexOf(99)==-1)
+					{
+						//System.out.println("isok2");
+						isok2=true;
+					}
+					else
+					{
+						isok2=false;
+					}
+				}
 				if(isok4)
 				{
 					//System.out.println(v1.indexOf(4));
@@ -246,13 +266,14 @@ public class BoAction extends HttpServlet {
 
 					}
 				}
-				if (isok8 && !isok7) {
-					isok6 = false;
+				if (isok8 ) {
+					//isok6 = false;
 					if (v1.indexOf(8) == -1 && DataBaseUtil.getConutHours1(mobile, 6) > 0) {
 
 						isok8 = true;
 					} else {
 						isok8 = false;
+				
 
 					}
 				}
@@ -260,7 +281,12 @@ public class BoAction extends HttpServlet {
 				if (isok1) {
 					json.put("status", "0");//
 					json.put("dese", "1");
-				} else if (isok3) {
+				} 
+				else if (isok2) {
+					json.put("status", "0");//
+					json.put("dese", "2");
+				}
+				else if (isok3) {
 					json.put("status", "0");//
 					json.put("dese", "3");
 				}else if (isok4) {

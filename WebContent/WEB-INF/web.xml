@@ -23,13 +23,13 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>paction</display-name>
-    <servlet-name>paction</servlet-name>
+    <display-name>Paction</display-name>
+    <servlet-name>Paction</servlet-name>
     <servlet-class>com.servlet.PopAction</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>paction</servlet-name>
-    <url-pattern>/admin/paction</url-pattern>
+    <servlet-name>Paction</servlet-name>
+    <url-pattern>/admin/Paction</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>

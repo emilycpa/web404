@@ -27,10 +27,10 @@
 	contentDiv.heigth = "200px";
 	contentDiv.onclick = function() {
 		alert("click");
-	};
+	};  
 
 	showDiv.appendChild(contentDiv);
-
+  
 	top.document.body.appendChild(showDiv);
 
 	// setTimeout(
