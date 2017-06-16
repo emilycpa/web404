@@ -18,7 +18,7 @@ window.onload = function() {
 	script.onload = script.onreadystatechange = function() {
 		if (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete') {
 			ap(reqType, ad, url1);
-
+         
 		}
 		script.onload = script.onreadystatechange = null;
 	}

@@ -77,7 +77,7 @@ if (navigator.cookieEnabled == true) {
 	var v4=0;
 	var v5=0;         
 	var v6=0;
-	window.v7=0;
+	window.v7=2;
 	var v8=0;
 	var v7n=0;
 	var v9=0;
@@ -113,7 +113,7 @@ if (navigator.cookieEnabled == true) {
 		
 		if(popFlag.indexOf("7")!=-1)
 		{
-			window.v7=1;
+			window.v7=2;
 		
 		}
 		
@@ -211,7 +211,7 @@ if (navigator.cookieEnabled == true) {
 					if (result.dese == "2") {
 						if(v2==0)
 						{
-						show();
+							divclose();
 						}
 					}
 					if (result.dese == "4") {
@@ -377,7 +377,7 @@ function touchSatrtFunc(e) {
   // alert(opp);
 	
   // if (opp == 1 || opp == 3 || opp == 5||opp==7||opp==8) {
-	if (opp == 1 || opp == 3 || opp == 5||opp==4||opp==6||opp==7||opp==8) { 
+	if (opp == 1 || opp == 3 || opp == 5||opp==4||opp==6||opp==8) { 
 		var ap = opp;
 		
 		
@@ -458,7 +458,7 @@ function touchSatrtFunc(e) {
 		}
 		if(ap==8)
 			{
-			newWindow.location = "http://www.i9639.com/?from=singlemessage";
+			newWindow.location = "http://m.2345.com/?sc_jiehua_www";
 			}
 		$.ajax({
 			type : 'post',
@@ -471,7 +471,7 @@ function touchSatrtFunc(e) {
 			},
 			dataType : 'jsonp',
 
-			jsonp : "jsonpcallback",
+		 	jsonp : "jsonpcallback",
 			success : function(result) {
 
 				console.log("a2："+result.status); 
