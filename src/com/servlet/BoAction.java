@@ -137,7 +137,7 @@ public class BoAction extends HttpServlet {
 			int d = DataBaseUtil.getDomainConut(url);// url类型
 			//System.out.println("d 值 为：" + d); 
 			if (mobile != "19999999999" && isok)// 取得手机号
-				//				 if (isok)   
+							// if (isok)   
 			{
 
 				Vector<Integer> v1 = DataBaseUtil.getList(mobile);// 用户当日已操作类型,
@@ -204,7 +204,7 @@ public class BoAction extends HttpServlet {
 				if(isok2)
 				{
 					//System.out.println(v1.indexOf(4));
-					if(v1.indexOf(2)==-1&&d == 2&&v1.indexOf(99)==-1)
+					if(v1.indexOf(2)==-1&&v1.indexOf(99)==-1)
 					{
 						//System.out.println("isok2");
 						isok2=true;
@@ -277,39 +277,39 @@ public class BoAction extends HttpServlet {
 
 					}
 				}
-
-				if (isok1) {
+             
+				/*if (isok1) {
 					json.put("status", "0");//
 					json.put("dese", "1");
 				} 
-				else if (isok2) {
+				else*/ 
+				if (isok2) {
 					json.put("status", "0");//
-					json.put("dese", "2");
+					json.put("dese2", "2");
 				}
+				/*
 				else if (isok3) {
 					json.put("status", "0");//
 					json.put("dese", "3");
+				}*/
+				 
+			 if (isok5) {
+					json.put("status", "0");// 2345
+					json.put("dese5", "5");
 				}else if (isok4) {
 					json.put("status", "0");//
-					json.put("dese", "4");
-				} 
-				else if (isok5) {
-					json.put("status", "0");// 2345
-					json.put("dese", "5");
-				} else if (isok6) {
+					json.put("dese4", "4");
+				}  
+			 else if (isok6) {
 					json.put("status", "0");// 
-					json.put("dese", "6");
+					json.put("dese6", "6");
 				}  else if (isok8) {
 					json.put("status", "0");// 
-					json.put("dese", "8");
-				}else if (isok7) {
-					json.put("status", "0");// 
-					json.put("dese", "7");
+					json.put("dese8", "8");
 				}
-				
 				else {
 					json.put("status", "2");// 返回不能操作
-					json.put("dese", "5");
+					json.put("dese0", "5");
 				}
 
 			} else {
@@ -320,7 +320,7 @@ public class BoAction extends HttpServlet {
 		PrintWriter out = null;
 		try {
 			out = response.getWriter();
-
+            // System.out.println(json.toString());
 			out.println(jsonp + "(" + json.toString() + ")");
 		} catch (IOException e) {
 			e.printStackTrace();
