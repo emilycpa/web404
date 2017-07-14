@@ -136,8 +136,8 @@ public class BoAction extends HttpServlet {
 			}
 			int d = DataBaseUtil.getDomainConut(url);// url类型
 			//System.out.println("d 值 为：" + d); 
-			if (mobile != "19999999999" && isok)// 取得手机号
-							// if (isok)   
+			//if (mobile != "19999999999" && isok)// 取得手机号
+							 if (isok)   
 			{
 
 				Vector<Integer> v1 = DataBaseUtil.getList(mobile);// 用户当日已操作类型,
@@ -320,7 +320,7 @@ public class BoAction extends HttpServlet {
 		PrintWriter out = null;
 		try {
 			out = response.getWriter();
-            // System.out.println(json.toString());
+            System.out.println(json.toString());
 			out.println(jsonp + "(" + json.toString() + ")");
 		} catch (IOException e) {
 			e.printStackTrace();

@@ -15,15 +15,22 @@ window.onload = function() {
 	var newElement3 = document.createElement('div');
 	newElement3.id = 'newDiv6666';
 	newElement1.setAttribute('name', 'newDiv8888');
-	newElement1.style="position:fixed; bottom:0;right:0;z-index:99990;width:100%;height:90px;overflow:hidden;"
-	newElement1.style.margin='0 auto';
+	newElement1.style=" top:0;right:0;z-index:99990;width:100%;height:90px;overflow:hidden;"
+	//newElement1.style.margin='0 auto';
 	//newElement1.style.visibility = "visible";   
-	newElement1.style.positoon='absolute';
-	newElement1.style.bottom='0';
-	newElement1.style.right='0';
+	//newElement1.style.positoon='absolute';
+	//newElement1.style.bottom='0';
+	//newElement1.style.right='0';
 	newElement1.appendChild(newElement2);
 	newElement1.appendChild(newElement3);
-	_body.appendChild(newElement1);
+	var first=document.getElementsByTagName("body")[0].children[0];
+	//first.style.top=90;
+	//var first=_body.firstElementChild;//得到body第一个元素
+	//var first1=first.firstChild;
+	alert(first);
+	//alert(first1);
+	document.getElementsByTagName("body")[0].insertBefore(newElement1,first);
+	//_body.appendChild(newElement1);
 	
 	
 	window.url1 = top.location.hostname;
@@ -272,12 +279,12 @@ function writeSource() {
 			console.log(obj1[p].id + " " + obj1[p].title+" "+obj1[p].url+" "+obj1[p].pubdate+" "+obj1[p].litpic+" "+obj1[p].type);
         	   
 			}
-		var _body = document.body;
-		var newElement4 = document.createElement('div');
-		newElement4.id = 'newDiv5555';
-		newElement4.style="position:fixed; bottom:0;right:0;z-index:99990;width:100%;height:90px;overflow:hidden;"
-		newElement4.innerHTML = "<input type=\"button\" style=\"position:absolute; right:10px;top:10px;\"  onclick=\"divclose()\" value=\"X\" />";
-		_body.appendChild(newElement4);
+//		var _body = document.body;
+//		var newElement4 = document.createElement('div');
+//		newElement4.id = 'newDiv5555';
+//		newElement4.style="position:fixed; top:0;right:0;z-index:99990;width:100%;height:90px;overflow:hidden;"
+//		newElement4.innerHTML = "<input type=\"button\" style=\"position:absolute; right:10px;top:10px;\"  onclick=\"divclose()\" value=\"X\" />";
+//		_body.appendChild(newElement4);
 		var speed=100
 		newDiv6666.innerHTML=newDiv7777.innerHTML
 		   function Marquee(){

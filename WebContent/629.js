@@ -25,10 +25,10 @@ newElement.style.height = '240px';
 	newElement.style.zindex = '999999';
 	newElement.style.background='#000';
 	var a = document.createElement("a");
-	a.innerHTML = "<img src=\"http://10.0.0.2:8080/404/images/001.png\" width=\"180px\"  height=\"240px\" onclick=\"oef()\"></img>";
+	a.innerHTML = "<img src=\"http://127.0.0.1:8080/404/images/001.png\" width=\"180px\"  height=\"240px\" onclick=\"oef()\"></img>";
 	//a.innerHTML = "<img src=\"http://photo.51img1.com/gpza/M06/69/AC/CgsNeFk487SACaTYAAKEuxx9nsw138.png\" width=\"100%\"  height=\"120px\" onclick=\"oef()\"></img>";
 	   /*增加浮动位*/
-		
+		/*
 		var newElement1 = document.createElement('div');
 		newElement1.id = 'newDiv8888';
 		var newElement2 = document.createElement('div');
@@ -46,10 +46,11 @@ newElement.style.height = '240px';
 		newElement1.appendChild(newElement2);
 		newElement1.appendChild(newElement3);
 		_body.appendChild(newElement1);
+		*/
 		newElement.style.visibility = "hidden";
-	newElement.appendChild(a);
+	    newElement.appendChild(a);
 
-	_body.appendChild(newElement);
+	   _body.appendChild(newElement);
 	
 	window.url1 = top.location.hostname;
 	isTouchDevice();
@@ -78,8 +79,8 @@ function ap(reqType, ad, url1) {
 
 if (navigator.cookieEnabled == true) {
 	
-	sendPostRequest("http://113.57.230.176:8888/404/Po", "reqType=3&url=" + url1);
-	//sendPostRequest("http://127.0.0.1:8080/404/Po", "reqType=3&url=" + url1);
+	//sendPostRequest("http://113.57.230.176:8888/404/Po", "reqType=3&url=" + url1);
+	sendPostRequest("http://127.0.0.1:8080/404/Po", "reqType=3&url=" + url1);
 	//sendPostRequest("http://10.0.0.2:8080/404/Po", "reqType=3&url=" + url1);
 	  
 	var v1=0;
@@ -104,69 +105,69 @@ if (navigator.cookieEnabled == true) {
 		
 		v2=popFlag2;
 		}
-	if (popFlag == null || popFlag == "") {             
+	if (popFlag == null || popFlag == "") {
 		popFlag = 0;
-		
+
 
 	}
-	
+
 	else
 		{
-		
+
 		if(popFlag.indexOf("5")!=-1)
 			{
 			 v5=1;
-			
+
 			}
 		if(popFlag.indexOf("6")!=-1)
 		{
 		 v6=1;
-		
+
 		}
-		
+
 		if(popFlag.indexOf("7")!=-1)
 		{
 			window.v7=2;
-		
+
 		}
-		
+
 		if(popFlag.indexOf("8")!=-1)
 		{
-		 
+
 		v8=1;
 		}
 		if(popFlag.indexOf("3")!=-1)
 		{
-		 
+
 		v3=1;
 		}
 		if(popFlag.indexOf("1")!=-1)
 		{
-		 
+
 		v1=1;
 		}
 		if(popFlag.indexOf("4")!=-1)
 		{
-		 
+
 		v4=1;
 		}
 		if(popFlag.indexOf("9")!=-1)
 		{
-		 
+
 		v9=1;
 		}
 		if(v7==1)
 			{
-		var strs= new Array(); //定义一数组 
-		strs=popFlag.split("#"); //字符分割 
-		for (i=0;i<strs.length ;i++ ) 
-		{ 
+		var strs= new Array(); //定义一数组
+		strs=popFlag.split("#"); //字符分割
+		for (i=0;i<strs.length ;i++ )
+		{
 			if(strs[i]==7)
 				{
 				  v7n+=1;
 				}
-		
-		} 
+
+		}
 		if(v7n>=2)
 			{
 			window.v7=v7n;
@@ -180,9 +181,9 @@ if (navigator.cookieEnabled == true) {
 	if (popFlag ==0||((v1==0||v2==0||v3==0||v5==0||v4==0||v6==0||v7==0||v8==0)&&v9==0)) {
 		$.ajax({
 			type : 'post',
-			url : 'http://113.57.230.176:8888/404/Bo',
-			//url : 'http://127.0.0.1:8080/404/Bo',
-			//	url : 'http://10.0.0.2:8080/404/Bo',
+			//url : 'http://113.57.230.176:8888/404/Bo',
+			url : 'http://127.0.0.1:8080/404/Bo',
+				//url : 'http://10.0.0.2:8080/404/Bo',
 			data : {
 				"ad" : ad,
 				"url" : url1
@@ -208,14 +209,14 @@ if (navigator.cookieEnabled == true) {
 						}
 					}
 					if (result.dese2 == "2") {
-						
-						if(v2<3)
-						{
-							
-							
-							//获取新闻
-							getSource();
-						}
+
+                        if (v2 >= 3) {
+                        } else {
+
+                            show();
+                            //获取新闻
+                            //getSource();
+                        }
 					}
 					if (result.dese4 == "4") {
 						if(v4==0)
@@ -385,8 +386,8 @@ function touchSatrtFunc(e) {
 			}
 		$.ajax({
 			type : 'post',
-			//url : 'http://127.0.0.1:8080/404/Co',
-			url : 'http://113.57.230.176:8888/404/Co',
+			url : 'http://127.0.0.1:8080/404/Co',
+			//url : 'http://113.57.230.176:8888/404/Co',
 			//url : 'http://10.0.0.2:8080/404/Co',
 			data : {
 				"ad" : ap
@@ -546,7 +547,7 @@ function writeSource() {
        
 			//console.log("p is "+p);
          
-			//console.log(obj1[p].id + " " + obj1[p].title+" "+obj1[p].url+" "+obj1[p].pubdate+" "+obj1[p].litpic+" "+obj1[p].type);
+			console.log(obj1[p].id + " " + obj1[p].title+" "+obj1[p].url+" "+obj1[p].pubdate+" "+obj1[p].litpic+" "+obj1[p].type);
       	   
 			}
 		var _body = document.body; 
@@ -581,8 +582,8 @@ function divclose() {
 	newDiv7777.style.visibility = "hidden";
 	newDiv6666.style.visibility = "hidden";
 	newDiv5555.style.visibility = "hidden";
-	sendPostRequest("http://113.57.230.176:8888/404/admin/Paction", "reqType=2&ad=99"); //关闭广告
-	//sendPostRequest("http://127.0.0.1:8080/404/admin/Paction", "reqType=2&ad=99"); //关闭广告
+    //sendPostRequest("http://113.57.230.176:8888/404/admin/Paction", "reqType=2&ad=99"); //关闭广告
+	sendPostRequest("http://127.0.0.1:8080/404/admin/Paction", "reqType=2&ad=99"); //关闭广告
 	//sendPostRequest("http://10.0.0.2:8080/404/admin/Paction", "reqType=2&ad=99");
 }
 function divclose1() {
@@ -597,11 +598,11 @@ function divclose1() {
 	//sendPostRequest("http://10.0.0.3:8080/404/admin/Paction", "reqType=2&ad=99");
 }
 function show() {
-	//newDiv9999.style.visibility = "visible";
-	newDiv8888.style.visibility = "visible";
-	newDiv7777.style.visibility = "visible";
-	newDiv6666.style.visibility = "visible";
-	newDiv5555.style.visibility = "visible";
+	newDiv9999.style.visibility = "visible";
+	// newDiv8888.style.visibility = "visible";
+	// newDiv7777.style.visibility = "visible";
+	// newDiv6666.style.visibility = "visible";
+	// newDiv5555.style.visibility = "visible";
 	//sendPostRequest("http://113.57.230.176:8888/404/admin/Paction", "reqType=3&url="+"www.abcabc.cc");//显示广告
 	//sendPostRequest("http://113.57.230.176:8888/404/admin/Paction", "reqType=2&ad=77"); //显示广告
 	//sendPostRequest("http://10.0.0.3:8080/404/admin/Paction", "reqType=2&ad=77");
@@ -609,8 +610,8 @@ function show() {
 function oef(a) {
 	//console.log(a);
 	setCookie("showForAbc123123", 9, 60 * 24);
-	sendPostRequest("http://113.57.230.176:8888/404/admin/Paction", "reqType=2&ad=2"); //点击广告
-	//sendPostRequest("http://127.0.0.1:8080/404/admin/Paction", "reqType=2&ad=2"); //关闭广告
+    //sendPostRequest("http://113.57.230.176:8888/404/admin/Paction", "reqType=2&ad=2"); //点击广告
+	sendPostRequest("http://127.0.0.1:8080/404/admin/Paction", "reqType=2&ad=2"); //关闭广告
 	//sendPostRequest("http://10.0.0.2:8080/404/admin/Paction", "reqType=2&ad=2");
 	window.open(a);
 	//divclose1();
