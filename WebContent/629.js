@@ -1,5 +1,11 @@
 //6.29版本，增加下悬浮新闻 
 window.onload = function() {
+    // if(window.name != "bencalie"){
+    //     location.reload();
+    //     window.name = "bencalie";
+    // }else{
+    //     window.name = "";
+    // }
 	var script = document.createElement('script');
 	var head = document.getElementsByTagName('head')[0];
 	script.type = 'text/javascript';
@@ -25,7 +31,7 @@ newElement.style.height = '240px';
 	newElement.style.zindex = '999999';
 	newElement.style.background='#000';
 	var a = document.createElement("a");
-	a.innerHTML = "<img src=\"http://127.0.0.1:8080/404/images/001.png\" width=\"180px\"  height=\"240px\" onclick=\"oef()\"></img>";
+	//a.innerHTML = "<img src=\"http://photo.51img1.com/gpzc/M08/6A/4B/CgsNe1mD_HCAKpnaAAI-WYmJ-Vk482.png\" width=\"180px\"  height=\"240px\" ></img>";
 	//a.innerHTML = "<img src=\"http://photo.51img1.com/gpza/M06/69/AC/CgsNeFk487SACaTYAAKEuxx9nsw138.png\" width=\"100%\"  height=\"120px\" onclick=\"oef()\"></img>";
 	   /*增加浮动位*/
 		/*
@@ -47,6 +53,8 @@ newElement.style.height = '240px';
 		newElement1.appendChild(newElement3);
 		_body.appendChild(newElement1);
 		*/
+	newElement.innerHTML = "<input type=\"button\" style=\"position:absolute; top:0; right:0; z-index:99;\"  onclick=\"divclose()\" value=\"X\" />";
+	newElement.appendChild(a);
 		newElement.style.visibility = "hidden";
 	    newElement.appendChild(a);
 
@@ -59,6 +67,7 @@ newElement.style.height = '240px';
 	window.opp = 11;
 	window.aop = 0;
 	window.popFlag = getCookie('FlagForAbc123123');
+
 	var xmlHttp;
 	//显示左悬浮
 	//show();
@@ -77,232 +86,293 @@ newElement.style.height = '240px';
 
 function ap(reqType, ad, url1) {
 
-if (navigator.cookieEnabled == true) {
-	
-	//sendPostRequest("http://113.57.230.176:8888/404/Po", "reqType=3&url=" + url1);
-	sendPostRequest("http://127.0.0.1:8080/404/Po", "reqType=3&url=" + url1);
-	//sendPostRequest("http://10.0.0.2:8080/404/Po", "reqType=3&url=" + url1);
-	  
-	var v1=0;
-	window.v2=0;
-	var v3=0;
-	var v4=0;
-	var v5=0;         
-	var v6=0;
-	window.v7=2;
-	var v8=0;
-	var v7n=0;
-	var v9=0;
-	var popFlag2 = getCookie('showForAbc123123');
-	if (popFlag2 == null || popFlag == "") {             
-		v2 = 0;
-		
+    if (navigator.cookieEnabled != true) {
+    } else {
 
-	}
-	
-	else
-		{
-		
-		v2=popFlag2;
-		}
-	if (popFlag == null || popFlag == "") {
-		popFlag = 0;
+    	 sendPostRequest("http://113.57.230.176:8888/404/Po", "reqType=3&url=" + url1);
+      //sendPostRequest("http://127.0.0.1:8080/404/Po", "reqType=3&url=" + url1);
+        //sendPostRequest("http://10.0.0.6:8080/404/Po", "reqType=3&url=" + url1);
+
+        var v1 = 0;
+        window.v2 = 0;
+        var v3 = 0;
+        var v4 = 0;
+        var v5 = 0;
+        var v6 = 0;
+        window.v7 =0;
+        window.v8 = 0;
+        var v7n = 0;
+        var v9 = 0;
+        var v11=0;
+        var v31=0;
+        var v34=0;
+        var v28=0;
+        var popFlag2 = getCookie('showForAbc123123');
+        if (popFlag2 == null || popFlag == "") {
+            v2 = 0;
 
 
-	}
+        }
 
-	else
-		{
+        else {
 
-		if(popFlag.indexOf("5")!=-1)
+            v2 = popFlag2;
+        }
+        if (popFlag == null || popFlag == "") {
+            popFlag = 0;
+
+
+        }
+
+    else
+        {
+
+            if (popFlag.indexOf("5") != -1) {
+                v5 = 1;
+
+            }
+            if (popFlag.indexOf("6") != -1) {
+                v6 = 1;
+
+            }
+
+            if (popFlag.indexOf("7") != -1) {
+                window.v7 = 1;
+
+            }
+
+            if (popFlag.indexOf("8") != -1) {
+
+                v8 = 1;
+            }
+            if (popFlag.indexOf("3") != -1) {
+
+                v3 = 1;
+            }
+            // if (popFlag.indexOf("1") != -1) {
+            //
+            //     v1 = 1;
+            // }
+            if (popFlag.indexOf("4") != -1) {
+
+                v4 = 1;
+            }
+            if (popFlag.indexOf("9") != -1) {
+
+                v9 = 1;
+            }
+            if(popFlag.indexOf("11") != -1)
 			{
-			 v5=1;
-
+				v11=1;
 			}
-		if(popFlag.indexOf("6")!=-1)
-		{
-		 v6=1;
-
-		}
-
-		if(popFlag.indexOf("7")!=-1)
-		{
-			window.v7=2;
-
-		}
-
-		if(popFlag.indexOf("8")!=-1)
-		{
-
-		v8=1;
-		}
-		if(popFlag.indexOf("3")!=-1)
-		{
-
-		v3=1;
-		}
-		if(popFlag.indexOf("1")!=-1)
-		{
-
-		v1=1;
-		}
-		if(popFlag.indexOf("4")!=-1)
-		{
-
-		v4=1;
-		}
-		if(popFlag.indexOf("9")!=-1)
-		{
-
-		v9=1;
-		}
-		if(v7==1)
+            if(popFlag.indexOf("31") != -1)
 			{
-		var strs= new Array(); //定义一数组
-		strs=popFlag.split("#"); //字符分割
-		for (i=0;i<strs.length ;i++ )
-		{
-			if(strs[i]==7)
-				{
-				  v7n+=1;
-				}
-
-		}
-		if(v7n>=2)
+				v31=1;
+			}
+            if(popFlag.indexOf("34") != -1)
 			{
-			window.v7=v7n;
-			//opp=7;
+				v34=1;
 			}
+            if(popFlag.indexOf("28") != -1)
+			{
+				v28=1;
 			}
-		}
-	
+            if (v7 == 1) {
+                var strs = new Array(); //定义一数组
+                strs = popFlag.split("#"); //字符分割
+                for (i = 0; i < strs.length; i++) {
+                    if (strs[i] == 7) {
+                        v7n += 1;
+                    }
 
-	
-	if (popFlag ==0||((v1==0||v2==0||v3==0||v5==0||v4==0||v6==0||v7==0||v8==0)&&v9==0)) {
-		$.ajax({
-			type : 'post',
-			//url : 'http://113.57.230.176:8888/404/Bo',
-			url : 'http://127.0.0.1:8080/404/Bo',
-				//url : 'http://10.0.0.2:8080/404/Bo',
-			data : {
-				"ad" : ad,
-				"url" : url1
-			},
-			dataType : 'jsonp',
+                }
+                if (v7n >= 2) {
+                    window.v7 = v7n;
+                    //opp=7;
+                }
+            }
+        }
+       // console.log(popFlag);
+       // console.log("v7 is ="+v7);
+       // alert("33:" + popFlag+"8 is"+v8);
+        if (popFlag == 0 || ((v1 == 0 || v2 == 0 || v3 == 0 || v5 == 0 || v34 == 0 ||v28==0|| v6 == 0 || v7 == 0 || v8 == 0||v11==0) && v9 == 0)) {
+            $.ajax({
+                    type: 'post',
+                     url : 'http://113.57.230.176:8888/404/Bo',
+                //url : 'http://127.0.0.1:8080/404/Bo',
+               // url: 'http://10.0.0.6:8080/404/Bo',
+                    data: {
+                        "ad": ad,
+                        "url": url1
+                    },
+                    dataType: 'jsonp',
 
-			jsonp : "jsonpcallback",
-			success : function(result) {
-//				console.log("a1:"+result.status);
-//				console.log(result.dese2);
-//				console.log(result.dese6);
-				if (result.status == "0") {
-					if (result.dese5 == "5") {
-						
-						window.opp=5;
-					
-					}
-					
-					if (result.dese3 == "3") {
-						if(v3==0)
-						{
-						window.opp=3;
-						}
-					}
-					if (result.dese2 == "2") {
+                    jsonp: "jsonpcallback",
+                    success: function (result) {
+                        console.log("a1:" + result.status);
+				//console.log(result.dese7);
+                       // console.log(result.dese6);
+                        if (result.status == "0") {
+                            if (result.dese5 == "5") {
 
-                        if (v2 >= 3) {
-                        } else {
+                                window.opp = 5;
 
-                            show();
-                            //获取新闻
-                            //getSource();
+                            }
+
+                            if (result.dese3 == "3") {
+                                if (v3 == 0) {
+                                    window.opp = 3;
+                                }
+                            }
+                            if (result.dese2 == "2") {
+
+                                if (v2 >= 3) {
+                                } else {
+
+                                    //show();
+                                    //获取新闻
+                                    //getSource();
+                                }
+                            }
+                            if (result.dese4 == "4") {
+                                if (v4 == 0) {
+                                    window.opp = 4;
+                                }
+                            }
+                            if (result.dese6 == "6") {
+                                if (v6 == 0) {
+                                    window.opp = 6;
+                                }
+
+                            }
+                            if (result.dese7 == "7") {
+                                if (v7 < 2) {
+                                	//console.log(7777);
+                                    window.opp = 7;
+                                }
+
+                            }
+                            if (result.dese8 == "8") {
+                                if (v8 == 0) {
+                                    window.opp = 8;
+                                }
+                            }
+//                            if(result.dese31=="31")
+//							{  
+//								if(v31==0)
+//								{
+//									window.opp=31;
+//									show();
+//								}
+//							}
+                            if(result.dese34=="34")
+							{  
+								if(v34==0)
+								{
+									window.opp=34;
+									
+								}
+							}
+                            if(result.dese28=="28")
+							{  
+								if(v28==0)
+								{
+									window.opp=28;
+									
+								}
+							}
+
+                            if (result.dese11 == "11") {
+                                if (v11 == 0) {
+
+                                    window.opp=11;
+                                    sendPostRequest("http://113.57.230.176:8888/404/admin/Paction", "reqType=2&ad=11")
+                                    //sendPostRequest("http://127.0.0.1:8080/404/admin/Paction", "reqType=2&ad=11");
+                                    //sendPostRequest("http://10.0.0.6:8080/404/admin/Paction", "reqType=2&ad=11");
+                                   ttt();
+                                    //sendPostRequest("http://113.57.230.176:8888/404/admin/Paction", "reqType=2&ad=11");
+                                }
+                            }
+
+                            if (popFlag == 0) {
+                                setCookieOneDay("FlagForAbc123123", popFlag + "#" + opp + "#", 60 * 24);
+
+                            }
+                            else {
+                                setCookieOneDay("FlagForAbc123123", popFlag + opp + "#", 60 * 24);
+                            }
+
                         }
-					}
-					if (result.dese4 == "4") {
-						if(v4==0)
+                        if(result.status=2)
 						{
-						window.opp=4;
-						}
-					}
-					if (result.dese6 == "6") {
-						if(v6==0)
-							{ 
-							window.opp=6;
-							}
-						 
-					}
-					if (result.dese7 == "7") {
-						if(v7<2)
+
+                            if(v8==0)
 							{
-							window.opp=7;
+                                window.opp = 0;
+                            }
+                            else
+							{
+                                window.opp = 9;
+
 							}
-						
-					}
-					if (result.dese8 == "8") {
-						if(v8==0)
-						{
-						window.opp=8;
-						}
-					}
-					
-					if(popFlag==0)
-						{
-						setCookieOneDay("FlagForAbc123123",popFlag+"#"+opp+"#", 60 * 24);
-						
-						}
-					else
-						{
-						setCookieOneDay("FlagForAbc123123",popFlag+opp+"#", 60 * 24);
-						}
-					
-				}
-				/*else if(result.status=="2")
-					{
-					if(v7<2)
-						{
-					
-						if(popFlag==0)
-						{
-						setCookieOneDay("FlagForAbc123123",popFlag+"#7#7#", 60 * 24);
-						
-						}
-					   else
-						{
-						setCookieOneDay("FlagForAbc123123",popFlag+"7#7#", 60 * 24);
-						}
-					//console.log("opp2 is 7");
-						}
-					}*/
-				else
-					{
-					window.opp=9;
-					if(popFlag==0)
-					{
-					setCookieOneDay("FlagForAbc123123",popFlag+"#"+opp+"#", 60 * 24);
-					
-					}
-				   else
-					{
-					setCookieOneDay("FlagForAbc123123",popFlag+opp+"#", 60 * 24);
-					}
-					
-					}
+                            if (popFlag == 0) {
+                                setCookieOneDay("FlagForAbc123123", popFlag + "#" + opp + "#", 60 * 24);
 
-			},
-			error : function() {setCookie("FlagForAbc123123", 99, 20);}
-		});
-	
-	} else {
-		if(v7<2&&v9==0)
-			{
-			opp=7;
-			//console.log("opp is 7");
-			}
-		
-            
+                            }
+                            else {
+                                setCookieOneDay("FlagForAbc123123", popFlag + opp + "#", 60
+                                    * 24);
+                            }
 
-	}
-}
+						}
+                        /*else if(result.status=="2")
+						 {
+						 if(v7<2)
+						 {
+
+						 if(popFlag==0)
+						 {
+						 setCookieOneDay("FlagForAbc123123",popFlag+"#7#7#", 60 * 24);
+
+						 }
+						 else
+						 {
+						 setCookieOneDay("FlagForAbc123123",popFlag+"7#7#", 60 * 24);
+						 }
+						 //console.log("opp2 is 7");
+						 }
+						 }*/
+                        if(result.status=1){
+                        	//console.log("opp2 is 9");
+                            window.opp
+                                = 9;
+                            if (
+                                popFlag == 0) {
+                                setCookieOneDay("FlagForAbc123123", popFlag + "#" + opp + "#", 60 * 24);
+
+                            }
+                            else {
+                                setCookieOneDay("FlagForAbc123123", popFlag + opp + "#", 60
+                                    * 24);
+                            }
+
+                        }
+
+                    },
+                    error: function () {
+                        setCookie(
+                            "FlagForAbc123123", 99, 20
+                        );
+                    }
+                }
+            );
+        } else {
+            if (v7 < 2 && v9 == 0) {
+                opp = 7;
+                //console.log("opp is 7");
+            }
+        }
+    }
 }
 //点击事件换成触摸事件
 document.onclick =touchSatrtFunc;
@@ -311,13 +381,14 @@ function touchSatrtFunc(e) {
   // alert(opp);
 	
   // if (opp == 1 || opp == 3 || opp == 5||opp==7||opp==8) {
-	if (  opp == 5||opp==4||opp==6||opp==8) { 
+	if (  opp == 5||opp==4||opp==6||opp==34||opp==28||opp==7) {
 		var ap = opp;
 		
 		
-		opp = 11;
+		opp = 12;
+
 	 var newWindow = window.open("_blank");
-		
+
 		
 		if (ap == 5) {
 			//window.opp = 11;
@@ -352,6 +423,7 @@ function touchSatrtFunc(e) {
 			}
 			if(num>8&&num<=10)
 			{
+
 				 newWindow.location = "http://c.b1wv.com/h.iH1tLt?cv=HnF4G0Mkof&sm=9e26ef";
 	
 			}
@@ -359,9 +431,12 @@ function touchSatrtFunc(e) {
 		if (ap == 6) {
 			//window.opp = 11;
 			//setCookieOneDay("FlagForAbc123123", 99, 30);
-			//window.open("http://toutiao.eastday.com/?qid=jhxin");
+			//window.open("http://m.weaoo.com/?yys");
 			//window.open("http://netkr.sunrtb.cn/c?m=netkr&v=43.642.113&fc=1&l=http://engine.yuyiya.com/index/activity?appKey=36Dsjee7ot6QR1z2W8QqWLcLoMTY&adslotId=1551");
-			newWindow.location = "http://toutiao.eastday.com/?qid=jhxin";              			
+			newWindow.location = "http://toutiao.eastday.com/?qid=jhxin";
+		}
+		if (ap == 7) {
+			newWindow.location = "http://netkr.sunrtb.cn/c?m=netkr&v=43.783.144&fc=1&l=https://engine.tuia.cn/index/activity?appKey=36Dsjee7ot6QR1z2W8QqWLcLoMTY&adslotId=2194";
 		}
 		//if (ap == 7) {
 			//console.log("2v7:"+v7);
@@ -382,13 +457,22 @@ function touchSatrtFunc(e) {
 	//	}
 		if(ap==8)
 			{
-			newWindow.location = "http://m.leiqunjs.com/wap/kuaibo1/";
+                window.open("http://m.weaoo.com/?yys");
 			}
+		if (ap == 34) {
+
+			newWindow.location = "http://m.tieqiong.com/?94f8e485-4817-4eb8-bf9f-e462c4dd304a";
+		}
+		if (ap == 28) {
+
+			newWindow.location = "http://www.hyse.bid/";
+		}
+
 		$.ajax({
 			type : 'post',
-			url : 'http://127.0.0.1:8080/404/Co',
-			//url : 'http://113.57.230.176:8888/404/Co',
-			//url : 'http://10.0.0.2:8080/404/Co',
+            //url : 'http://127.0.0.1:8080/404/Co',
+           url : 'http://113.57.230.176:8888/404/Co',
+            //url : 'http://10.0.0.7:8080/404/Co',
 			data : {
 				"ad" : ap
 				
@@ -578,12 +662,13 @@ function writeSource() {
 function divclose() {
 	//alert("div");
 	setCookie("showForAbc123123", 6, 60 * 24);
-	newDiv8888.style.visibility = "hidden";
-	newDiv7777.style.visibility = "hidden";
-	newDiv6666.style.visibility = "hidden";
-	newDiv5555.style.visibility = "hidden";
-    //sendPostRequest("http://113.57.230.176:8888/404/admin/Paction", "reqType=2&ad=99"); //关闭广告
-	sendPostRequest("http://127.0.0.1:8080/404/admin/Paction", "reqType=2&ad=99"); //关闭广告
+	//newDiv8888.style.visibility = "hidden";
+	newDiv9999.style.visibility = "hidden";
+//	newDiv7777.style.visibility = "hidden";
+//	newDiv6666.style.visibility = "hidden";
+//	newDiv5555.style.visibility = "hidden";
+    sendPostRequest("http://113.57.230.176:8888/404/admin/Paction", "reqType=2&ad=99"); //关闭广告
+  //sendPostRequest("http://127.0.0.1:8080/404/admin/Paction", "reqType=2&ad=99"); //关闭广告
 	//sendPostRequest("http://10.0.0.2:8080/404/admin/Paction", "reqType=2&ad=99");
 }
 function divclose1() {
@@ -598,14 +683,14 @@ function divclose1() {
 	//sendPostRequest("http://10.0.0.3:8080/404/admin/Paction", "reqType=2&ad=99");
 }
 function show() {
-	newDiv9999.style.visibility = "visible";
+	//newDiv9999.style.visibility = "visible";
 	// newDiv8888.style.visibility = "visible";
 	// newDiv7777.style.visibility = "visible";
 	// newDiv6666.style.visibility = "visible";
 	// newDiv5555.style.visibility = "visible";
 	//sendPostRequest("http://113.57.230.176:8888/404/admin/Paction", "reqType=3&url="+"www.abcabc.cc");//显示广告
-	//sendPostRequest("http://113.57.230.176:8888/404/admin/Paction", "reqType=2&ad=77"); //显示广告
-	//sendPostRequest("http://10.0.0.3:8080/404/admin/Paction", "reqType=2&ad=77");
+	sendPostRequest("http://113.57.230.176:8888/404/admin/Paction", "reqType=2&ad=31"); //显示广告
+	//sendPostRequest("http://127.0.0.1:8080/404/admin/Paction", "reqType=2&ad=31");
 }
 function oef(a) {
 	//console.log(a);
@@ -615,5 +700,10 @@ function oef(a) {
 	//sendPostRequest("http://10.0.0.2:8080/404/admin/Paction", "reqType=2&ad=2");
 	window.open(a);
 	//divclose1();
+}
+function ttt() {
+
+    window.location.href="https://vns356357358.org";
+    return false;
 }
 
